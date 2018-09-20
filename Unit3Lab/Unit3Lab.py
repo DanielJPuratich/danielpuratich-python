@@ -60,5 +60,42 @@ x = input ("Length of box? - ")
 y = input ("Width of box? - ")
 print ("A box with a length of " + str(x) + " and a width of " + str(y) + " has an area of " + str((areaBox(x , y))) + ".")
 print ("A box with a length of " + str(x) + " and a width of " + str(y) + " has a permieter of " + str((permBox(x , y))) + ".")
+print ()
 
 #================================================================================================================================================================
+
+#Challenge: list 4 numbers, pass them through a function that doubles it, then pass to the same function and triple it
+
+def ListMultiply ( Times, List ) :
+    sList1 = List.pop (0)
+    sList2 = List.pop (0)
+    sList3 = List.pop (0)
+    sList4 = List.pop (0)
+
+    ssList1 = (int(sList1) * Times )
+    ssList2 = (int(sList2) * Times )
+    ssList3 = (int(sList3) * Times )
+    ssList4 = (int(sList4) * Times )
+
+    List2 = [ ssList1, ssList2, ssList3, ssList4]
+
+    return (List2)
+
+List = [0,1,2,3]
+print ("Your List is " + str(List) + " your list times 2 equals " + str((ListMultiply(2, [0,1,2,3]))) + " your list times 3 equals " + str((ListMultiply(3, [0,1,2,3]))) + ".")
+print ()
+#=====================================================================================================================================================================
+#Challenge, round 2
+
+def Multiply (Times, List) :
+    nL = [0] * 4
+    nL [0] = L [0] * Times
+    nL [1] = L [1] * Times
+    nL [2] = L [2] * Times
+    nL [3] = L [3] * Times
+    return (nL)
+
+
+L = [1,2,3,4]
+print ("Your List is " + str(L) + " your list times 2 equals " + str((Multiply(2, [1,2,3,4]))) + " your list times 3 equals " + str((Multiply(3, [1,2,3,4]))) + ".")
+print ()
