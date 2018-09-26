@@ -35,9 +35,8 @@ def grades () :
     ListA = List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop (0)
 
     Gpa = ListA / ListL
-    print ("Your percentage avergae is - " + str(Gpa) )
-
     print ()
+    print ("Your percentage avergae is - " + str(Gpa) )
 
     if int(Gpa) > 90:
         print ("Your letter grade is - A")
