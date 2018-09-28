@@ -84,7 +84,7 @@ def calcAverageGrade (num1, num2, num3, num4, num5, num6) :
     List1 [3] = num4
     List1 [4] = num5
     List1 [5] = num6
-    #NEED TO ADD WAY FOR THING TO POP THE RIGHT AMMOUNT OF NUMBERS (MAYBE SOME SORT OF LOOP)==========================
+
     ListL = len (List1)
     ListA = List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop (0)
     Gpa = ListA / ListL
