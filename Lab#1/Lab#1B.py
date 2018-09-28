@@ -54,8 +54,6 @@ def Main () :
     else:
         num6 = float((num1 + num2 + num3 + num4 + num5) / (5))
 
-#THIS IS WHERE MODIFIED CODE STARTS, NEED TO UPDATE THINGS THAT SEND TO FUNCTIONS AND FUNCTIONS TO PROCESS IT========
-
     print ("Your grade average is " + calcAverageGrade(num1, num2, num3, num4, num5, num6) + "%.")
     print ()
 
