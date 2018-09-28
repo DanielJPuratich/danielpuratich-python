@@ -7,6 +7,7 @@ def Main () :
     check4 = str("no")
     check5 = str("no")
     check6 = str("no")
+    check7 = str("no")
 
     num1 = float(input ("Put in your best grade? - "))
     check2 = str(input("Do you want to put in another grade? - "))
@@ -49,18 +50,28 @@ def Main () :
 
     if str(check6) == "yes" :
         num6 = float(input ("Put in your sixth best grade? - "))
+        check7 = str(inpu("Do you want to enter another grade? - "))
     elif str(check6) == "Yes" :
         num6 = float(input ("Put in your sixth best grade? - "))
+        check7 = str(inpu("Do you want to enter another grade? - "))
     else:
         num6 = float((num1 + num2 + num3 + num4 + num5) / (5))
 
-    print ("Your grade average is " + calcAverageGrade(num1, num2, num3, num4, num5, num6) + "%.")
+    if str(check7) == "yes" :
+        num7 = float(input ("Put in your seventh best grade? - "))
+    elif str(check7) == "yes" :
+        num7 = float(input ("Put in your seventh best grade? - "))
+    else:
+        num7 = float((num1 + num2 + num3 + num4 + num5 + num6) / (6))
+
+
+    print ("Your grade average is " + calcAverageGrade(num1, num2, num3, num4, num5, num6, num7) + "%.")
     print ()
 
-    print ("Your letter grade average is " + getLetterGrade (num1, num2, num3, num4, num5, num6) + ".")
+    print ("Your letter grade average is " + getLetterGrade (num1, num2, num3, num4, num5, num6, num7) + ".")
     print ()
 
-    print ("You are " + passOrFail(num1, num2, num3, num4, num5, num6) + ".")
+    print ("You are " + passOrFail(num1, num2, num3, num4, num5, num6, num7) + ".")
 #============================================================================================================
 def yearsInSchool (numGrade) :
     if numGrade == 9:
@@ -74,31 +85,33 @@ def yearsInSchool (numGrade) :
     else:
         return (str("not in highschool."))
 #============================================================================================================
-def calcAverageGrade (num1, num2, num3, num4, num5, num6) :
-    List1 = [0] * 6
+def calcAverageGrade (num1, num2, num3, num4, num5, num6, num7) :
+    List1 = [0] * 7
     List1 [0] = num1
     List1 [1] = num2
     List1 [2] = num3
     List1 [3] = num4
     List1 [4] = num5
     List1 [5] = num6
+    List1 [6] = num7
 
     ListL = len (List1)
-    ListA = List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop (0)
+    ListA = List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop (0) + List1.pop(0)
     Gpa = ListA / ListL
     Gpa2 = str(Gpa)
     return (Gpa2)
 #============================================================================================================
-def getLetterGrade (num1, num2, num3, num4, num5, num6) :
-    List1 = [0] * 6
+def getLetterGrade (num1, num2, num3, num4, num5, num6, num7) :
+    List1 = [0] * 7
     List1 [0] = num1
     List1 [1] = num2
     List1 [2] = num3
     List1 [3] = num4
     List1 [4] = num5
     List1 [5] = num6
+    List1 [6] = num7
     ListL = len (List1)
-    Avg = (num1 + num2 + num3 + num4 + num5 + num6) / ListL
+    Avg = (num1 + num2 + num3 + num4 + num5 + num6 + num7) / ListL
 
     if int(Avg) > 90:
        return (str("A"))
@@ -115,8 +128,8 @@ def getLetterGrade (num1, num2, num3, num4, num5, num6) :
     else:
         return (str("F"))
 
-def passOrFail (num1, num2, num3, num4, num5, num6) :
-    Avg = (num1 + num2 + num3 + num4 + num5 + num6) / 6
+def passOrFail (num1, num2, num3, num4, num5, num6, num7) :
+    Avg = (num1 + num2 + num3 + num4 + num5 + num6 + num7) / 7
     if int(Avg) > 70:
         return (str("passing"))
     else:
