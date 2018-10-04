@@ -1,37 +1,53 @@
-myString = str(input("Enter any string - "))
-print ("Your string is - " + myString )
-print()
-print ("Your string without vowels is - " + deVowel(myString))
-grades = [95, 10, 4, 200]
-print ("Your average grades using a for loop equals " + calcAverageGrade(grades))
+def Main () :
+    myString = str(input("Enter any string - "))
+    print ("Your string is - " + myString )
 
+    print ("Your string without vowels is - " + deVowel(myString))
+    print ()
 
-def deVowel () :
-    #this is where it removes vowels using a for statement and then returns result
-    #will need if/else and and statements
+    g = [0] * 4
+    g [0] = float(input("Enter a number - "))
+    g [1] = float(input("Enter a number - "))
+    g [2] = float(input("Enter a number - "))
+    g [3] = float(input("Enter a number - "))
+    m = float(input("What do you want to multiply by? - "))
 
-def calcAverageGrade () :
-    #use this to calculate average grades, add grades up using a for loop
+    print ("Your average grades using a for loop equals " + mathStuff(g , m))
+    print ()
 
+    num1 = str(input ("Put in your best grade? - "))
+    num2 = str(input ("Put in your second best grade? - "))
+    num3 = str(input ("Put in your third best grade? - "))
+    num4 = str(input ("Put in your fourth best grade? - "))
+    List1 = [0] * 4
+    List1 [0] = num1
+    List1 [1] = num2
+    List1 [2] = num3
+    List1 [3] = num4
 
-
-
-
-
-
-
-#====================================================================================================
-#not part of lab, but notes for it - comment this ut when working and delete it when done
-#l = [10,20,30]
-#sum = int(0)
-#for num in l :
-#    sum = sum + num
-#print (sum)
-
-#stringA = "ABCD ABCD"
-#stringB = ""
-#for x in stringA :
-#    if x != "A" :
-#        stringB = stringB + x
-#print (stringA)
-#print (stringB)
+    print ("The average of your four best grades using a for loop is - " + avgGrade(List1) + "%")
+#=============================================================================================================
+def deVowel (myString) :
+    myString2 = myString
+    myStringV = ""
+    for x in myString2 :
+        if (x == "a" or x=="e" or x=="i" or x=="o" or x=="u"or x=="A" or x=="E" or x=="O" or x=="U") :
+            y = 69
+        else :
+            myStringV = myStringV + x
+    return (myStringV)
+#=============================================================================================================
+def mathStuff (g , m) :
+    Listf = [] * 4
+    for x in g :
+        Listf.append(float(x) * float(m))
+    return (str(Listf))
+#=============================================================================================================
+def avgGrade (List1) :
+    Val = float("0")
+    for x in List1 :
+        Val = float(Val) + int(x)
+    Avg = float(Val) / 4
+    return (str(Avg))
+#==============================================================================================================
+Main ()
