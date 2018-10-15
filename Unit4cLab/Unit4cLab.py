@@ -29,12 +29,10 @@ def numbs () :                   #is called on by main
 #--------------------------------------------------------------------------------------------------------------------
 def chal1 () :                                       #is called by main
     for x in range(0,7) :                            #runs this loop 7 times settng x to each value each time
-        if x==0 :                                    #if its the first run and x is set to 0 run the following
+        if x==0 or x==6 :                            #if its the first or last run run th following
             print (" *" *7)                          #prints a row of stars
-        elif x==1 or x==2 or x==3 or x==4 or x==5 :  #if x is 12345 run the following
+        else:                                        #if x is 12345 run the following
             print (" *" + " -" * 5 + " *")           #prints a row of hyphens with stars on outside
-        else :                                       #if none of the following are true
-            print (" *" *7)                          #prints a row of stars
 #--------------------------------------------------------------------------------------------------------------------
 def chal2 () :                        # is called on by main
     for y in (1,3) :                  # runs this loop twice one with y==1 and the other with it y==2
@@ -43,7 +41,7 @@ def chal2 () :                        # is called on by main
                 print (str(x) * x)    #print the x value the number of times x is
             else :                    #if y=!1 then
                 y = x -7              # y will equal x minus 7
-                y2 = y * -1           #y2 is y inverted
+                y2 = y * -1           #y2 is y inverted version of y
                 print(str(y2) * y2)   #prints y invetered multiplied by the number of times y2 is
 
 #=====================================================================================================================
