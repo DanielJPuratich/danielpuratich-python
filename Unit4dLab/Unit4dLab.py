@@ -1,13 +1,16 @@
-def main () :                                                                                                           #main calls all functions and holds lists
-    shoppingCart = createCustomList ()                                                                                  #if you chose defines list to your choice
-    #shoppingCart = [['tooth paste','q-tips','milk'],['milk','candy','apples'],['paper','pencils','q-tips']]             #
+def main () :
+    #shoppingCart = createCustomList ()
+    shoppingCart = [['tooth paste','q-tips','milk'],['milk','candy','apples'],['paper','pencils','q-tips']]
     print ("oldCart - " + str(shoppingCart))
     print ()
     print ("newCart - " + combineLists(shoppingCart))
     print ()
     print ("the number of q-tips is - " + countTips(shoppingCart))
     print ()
-    print ("Shopping cart with milk - " + drinkMoreMilk(shoppingCart))
+    print ("Shopping cart with milk - " + str(drinkMoreMilk(shoppingCart)))
+    listWithMilk = drinkMoreMilk(shoppingCart)
+    print ()
+    print ("Whatever milk and cookies challenge is - " + milkCookies(listWithMilk))
 #=======================================================================================================================================================================================
 def combineLists (origCart) :
     newCart = []
@@ -25,13 +28,27 @@ def countTips (cart) :
                 numtips = numtips + 1
     return (str(numtips))
 #=======================================================================================================================================================================================
-def drinkMoreMilk (cart) :                                                                                              #this is the only part that doesnt work
+def drinkMoreMilk (cart) :
+    x = int(0)
     newCart = []
-    if 'milk' in cart :
+    for group in cart :
+        for item in group :
+            if item=='milk' or item=='Milk' :
+                x = x + 1
+    if x==0 :
         newCart = cart + [['milk']]
     else :
         newCart = cart
-    return (str(newCart))
+    return (newCart)
+#=======================================================================================================================================================================================
+def milkCookies (cart) :                                   #this is the only part that doesn't work
+    #try :
+    cart.remove ('milk')
+    cart = cart +['milk and cookies']
+        #milkCookies(cart)
+    #except ValueError :
+        #pass
+    return (str(cart))
 #=======================================================================================================================================================================================
 def createCustomList () :
     aa = input("Group 1 item 1 - ")
