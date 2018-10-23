@@ -43,12 +43,12 @@ def drinkMoreMilk (cart) :
 #=======================================================================================================================================================================================
 def milkCookies (cart) :                                   #this is the only part that doesn't work
     #try :
-    cart.remove ('milk')
-    cart = cart +['milk and cookies']
+    #cart.remove ('milk')
+    #cart = cart +['milk and cookies']
         #milkCookies(cart)
     #except ValueError :
         #pass
-    return (str(cart))
+    return ('yeah, i cant figure this out')
 #=======================================================================================================================================================================================
 def createCustomList () :
     aa = input("Group 1 item 1 - ")
