@@ -57,12 +57,12 @@ def main () :
         c = ca + cb
         d = da + db
         print(a + "\n" + b + "\n" + c + "\n" + d + "\n" + a)
-        if x==num1 and y==num2 :
+        if (x==num1 and y==num2) or (x==num2 and y==num1) :
             complete(times , num1 , num2)
             break
 
 def complete (times , num1 , num2) :
-    print ("It took you " + str(times) + " to roll a " + str(num1) + " and a " + str(num2) + "." )
+    print ("It took you " + str(times) + " tries to roll a " + str(num1) + " and a " + str(num2) + "." )
 
 
 
