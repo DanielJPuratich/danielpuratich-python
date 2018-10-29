@@ -6,35 +6,47 @@ def main () :
     while cont=='y' :
         times = times + 1
         print(diced(dice))
-        print ("You rolled a - " + str(y) + " and " + str(x) + ".")         #find way to check
         print ("You have played " + str(times) + " times.")
         cont = input ("Would you like this to run again? (y/n) - ")
 
 def diced (numOfDice) :
+    a = "  ------- " * numOfDice
+    t = ''
+    u = ''
+    i = ''
+    for num in range(0 , numOfDice) :
+        y = randint(1,6)
+
+        if y==1 or y==2 :
+            b = ' |       |'
+        elif y==3 :
+            b = ' |   *   |'
+        elif y==4 or y==5 or y==6 :
+            b = ' | *  *  |'
+
+        if y==1 or y==3 or y==5 :
+            c = ' |   *   |'
+        elif y==4 :
+            c = ' |       |'
+        elif y==2 or y==6 :
+            c = ' | *  *  |'
+
+        if y==1 or y==2 :
+            d = ' |       |'
+        elif y==3 :
+            d = ' |   *   |'
+        elif y==4 or y==5 or y==6 :
+            d = ' | *  *  |'
+
+        t = t + b
+        u = u + c
+        i = i + d
 
 
-#add funcs here to call on the seperate dies and add em together
+
+    return (a + "\n" + t + "\n" + u + "\n" + i + "\n" + a)
 
 
-def dice1 () :
-    a = '  ------- '
-    b = ' |       |'
-    c = ' |   *   |'
-    return (a + '\n' + b + '\n' + c + '\n' + b + '\n' + a)
-
-def dice2 () :
-    a = '  ------- '
-    b = ' |       |'
-    c = ' | *  *  |'
-    return (a + '\n' + b + '\n' + c + '\n' + b + '\n' + a)
-
-#here add funcs to return dice3 4 5 and 6
-
-
-
-def randNum () :
-    z = randint(1,6)
-    return (z)
 
 def die () :
     w = 'n'
@@ -47,8 +59,6 @@ def die () :
                 print ("This is not a valid number" + '\n')
         except ValueError:
             print ("This is not a valid number" + '\n')
-
-
 
 
 
