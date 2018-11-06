@@ -10,7 +10,6 @@ def main () :
         loop = input ("Would you like this to run again? (y/n) - ")
         print ("You have played " + str(times) + " times.")
 
-
 def rand () :
     y = randint (1,6)
     return (y)
@@ -38,14 +37,10 @@ def diceLists ( perRow) :
         finalOut.append(outDice)
     return(finalOut)
 
-#this pridie part of the code is the only part thats not working===============================================================
 def pridie (diceLis) :
-    #print (diceLis)                                            #for testing, delete later
     for list in range(0 , len(diceLis[0])) :
         for item in range(0 , len(diceLis)) :
             print (diceLis[item][list] , end = '\t')
         print ()
-#==============================================================================================================================
-
 
 main ()
