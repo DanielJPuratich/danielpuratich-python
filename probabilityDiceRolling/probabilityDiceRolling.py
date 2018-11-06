@@ -26,11 +26,6 @@ def main () :
                                         break
 
 def yay (num, times) :
-
-    print ("It took " + str(times) + " to roll a " + str(num))
-
-
-
-
+    print ("it took " + '{:,}'.format(times) + " to roll a " + str(num) + ".")
 
 main ()
