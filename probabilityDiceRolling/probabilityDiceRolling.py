@@ -16,10 +16,17 @@ def main () :
                     if e==num :
                         f = randint(1,6)
                         if f==num :
-                            yay (num, times)
-                            break
+                            g = randint(1,6)
+                            if g==num :
+                                h = randint(1,6)
+                                if h==num :
+                                    i = randint(1,6)
+                                    if i==num :
+                                        yay (num, times)
+                                        break
 
 def yay (num, times) :
+
     print ("It took " + str(times) + " to roll a " + str(num))
 
 
