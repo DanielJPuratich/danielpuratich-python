@@ -27,7 +27,6 @@ def drawing1 (p) :
         t.left(90)
     moveT (0 , 0)
 
-
 def drawing2 (p) :
     #draw cirle bottom left
     moveT (-150 , -150)
@@ -56,13 +55,23 @@ def drawing4 (p) :
     t.pencolor("#e2df0d")
     t.right(75)
     t.pensize(5)
-    for x in range(150) :
+    for x in range(100) :
         t.forward(x)
         t.left(90)
     t.pensize(1)
     moveT(0,0)
 
 def drawing5 (p) :
+    #draw two rectangles to divide each quadrant of graph
+    moveT(-800,0)
+    t.pencolor("black")
+    t.right(165)
+    t.pensize(25)
+    t.forward(1600)
+    moveT(0,800)
+    t.right(90)
+    t.forward(1600)
+    t.pensize(1)
     moveT(0,0)
 
 def moveT (x , y) :
