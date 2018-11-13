@@ -4,15 +4,17 @@ def mainDrawing () :
     t.hideturtle ()
     t.speed(0)
     t.setup(width=800 , height=800)
-    p = t.Pen()
+    p = 6
     c = '#268dd6'
     t.title("Turtle Graphics - turtleIntro")
-    p.pencolor(c)
+    #p.pencolor(c)
     drawing1 (p)
     drawing2 (p)
     drawing3 (p)
     drawing4 (p)
     drawing5 (p)
+    drawing6 (p)
+    drawing7 (p)
     t.exitonclick ()
 
 
@@ -73,6 +75,31 @@ def drawing5 (p) :
     t.forward(1600)
     t.pensize(1)
     moveT(0,0)
+
+def drawing6 (p) :
+    moveT(-250, -250)
+    t.pensize(1)
+    t.pencolor('black')
+    t.forward(20)
+    t.right(90)
+    t.forward(40)
+    t.right(90)
+    t.forward(20)
+    t.right(90)
+    t.forward(40)
+
+def drawing7 (p) :
+    moveT(-65,-250)
+    t.pensize(1)
+    t.pencolor('black')
+    t.forward(20)
+    t.right(90)
+    t.forward(40)
+    t.right(90)
+    t.forward(20)
+    t.right(90)
+    t.forward(40)
+
 
 def moveT (x , y) :
     #made this function to move the pen to cordinates without drawing
