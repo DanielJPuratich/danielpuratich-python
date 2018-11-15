@@ -14,7 +14,7 @@ def main () :
 def inputinfo () :
     c = input ('Input a color to draw with - ')
     l = int(input('Input the length in pixels of each side - '))
-    n = int(input('Input the nunmber of sides for your polygon - '))
+    n = int(input('Input the number of sides for your polygon - '))
     if n<=2 :
         error()
     something (c , l , n)
