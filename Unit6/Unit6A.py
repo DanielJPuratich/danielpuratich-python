@@ -2,11 +2,13 @@ def main () :
     dict = {'tldr':'too long didnt read','smh':'shake my head','afk':'away from keyboard'}
     d = 'y'
     while d=='y' :
-        f = input("Would you like to use dictionary or modify dictionary or view dictionary (u/m/v) - ")
+        f = input("Would you like to use dictionary or modify dictionary or view dictionary or clear console (u/m/v/c) - ")
         if f=='u' :
             dict = norm(dict)
         elif f=='m' :
             dict = mod(dict)
+        elif f=='c' :
+            print('\n'*50)
         else :
             dict = view(dict)
 #===============================================================
