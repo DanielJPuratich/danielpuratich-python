@@ -50,6 +50,6 @@ def view(dict) :
         print(x + ' : ' + dict[x] + '      ', end='')
     print()
     print()
-    return dict
+    return (dict)
 #==========================================================================
 main ()
