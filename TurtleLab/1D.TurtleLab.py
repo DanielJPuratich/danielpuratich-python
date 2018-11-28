@@ -7,11 +7,15 @@ def main () :
     randback ()
     t.hideturtle()
     t.speed(0)
+    t.tracer(0,0)
     print("Program has four parts to complete. By Daniel P")
     background()
     midground()
     foreground()
     someground ()
+    ros()
+    tros()
+    t.update
     t.exitonclick()
 
 
@@ -29,6 +33,7 @@ def background () :
             randcolor()
         t.circle(x)
     print("\rBackground - " + '100' + "%")
+    t.update()
 
 def midground () :
     moveT(0,-390)
@@ -49,6 +54,7 @@ def midground () :
             moveT(xcord,ycord)
             b = 0
     print("\rMidground - " + '100' + "%")
+    t.update()
 
 
 def foreground () :
@@ -114,6 +120,7 @@ def foreground () :
         f = h/2.68
         print("\rForeground - " + str(f) + "%", end='')
     print("\rForeground - " + '100' + "%")
+    t.update()
 
 def someground () :
     moveT(0,-425)
@@ -138,6 +145,29 @@ def someground () :
     t.color("black")
     t.forward(0.1)
     print("\rSomeground - " + '100' + "%")
+    t.update()
+
+def ros () :
+    moveT(0,0)
+    t.pensize(1)
+    t.pencolor("black")
+    for x in range(0,(360)) :
+        moveT(0,0)
+        randcolor ()
+        t.circle(randint(25,300))
+        t.right(3)
+    print("Trippy part - 100%")
+    t.update()
+
+def tros () :
+    moveT(0,0)
+    t.pencolor("black")
+    for x in range(0,360) :
+        moveT(0,0)
+        t.circle(300)
+        t.right(3)
+    print("Other part - 100%")
+    t.update()
 
 
 #=================================================================================================================
