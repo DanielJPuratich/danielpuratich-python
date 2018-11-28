@@ -17,8 +17,8 @@ def norm (dict) :
         if d in dict :
             print(dict[d])
         else :
-            print("this isnt in the dictionary currently")
-            n = input("Would you lke to add it to the dictionary? (y/n) - ")
+            print("This isnt in the dictionary currently")
+            n = input("Would you like to add it to the dictionary? (y/n) - ")
             if n=='y' :
                 c = input("What does that stand for - ")
                 dict[d] = c
@@ -46,7 +46,10 @@ def mod (dict) :
     return(dict)
 #==========================================================================
 def view(dict) :
-    print(dict)
+    for x in dict :
+        print(x + ' : ' + dict[x] + '      ', end='')
     print()
+    print()
+    return dict
 #==========================================================================
 main ()
