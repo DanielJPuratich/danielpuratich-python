@@ -43,7 +43,7 @@ def mod (dict) :
             dict[g] = q
         else :
             print("This isn't valid, please input an r or e for remove and edit!")
-        x = input("Would you like to remove another item(y/n) - ")
+        x = input("Would you like to remove or edit something else?(y/n) - ")
         print()
     return(dict)
 #==========================================================================
