@@ -13,3 +13,18 @@ weekends = {'january' : [6,7,13,14,20,21,27,28],
             }
 
 d = 1
+
+
+def asd (monthAndYear) :
+    letters = ''
+    nums = ''
+    for char in monthAndYear :
+        try :
+            d = int(char)
+            nums = nums + char
+        except ValueError :
+            if char!=' ' :
+                letters = letters + char
+    #return(letters,nums)
+    return(nums,letters)
+
