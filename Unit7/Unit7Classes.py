@@ -22,6 +22,11 @@ class cage:
         return(self.danger)
     def getBreed (self) :
         return(self.breed)
+    def calcDang (self) :
+        if self.danger=='True' :
+            return('is dangerous.')
+        elif self.danger=='False' :
+            return('isnt dangerous.')
     def what(self):
-        return('This is a '+ self.petType + ' who is a ' + self.breed + ' and ' + self.danger + ' dangerous.')
+        return('This is a '+ self.petType + ' who is a ' + self.breed + ' and ' + self.calcDang())
 #=====================================================================================================================
