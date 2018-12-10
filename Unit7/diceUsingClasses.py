@@ -3,8 +3,7 @@ def main () :
     times = 0
     cont = 'y'
     while cont=='y' :
-        b = thang(die())
-        print(thang.genDice(b))
+        print(thang.genDice(thang(die())))
         times = times + 1
         print('the dice')
         print ("You have played " + str(times) + " times.")
