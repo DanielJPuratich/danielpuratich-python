@@ -5,7 +5,6 @@ def main () :
     while cont=='y' :
         print(thang.genDice(thang(die())))
         times = times + 1
-        print('the dice')
         print ("You have played " + str(times) + " times.")
         cont = input ("Would you like this to run again? (y/n) - ")
 
@@ -17,9 +16,9 @@ def die () :
             if q>0 :
                 return (q)
             else :
-                print ("This is not a valid number" + '\n')
+                print ("This is not a valid number")
         except ValueError:
-            print ("This is not a valid number" + '\n')
+            print ("This is not a valid number")
 
 class thang :
     def __init__(self, numOfDice):
@@ -58,11 +57,6 @@ class thang :
             self.u = self.u + c
             self.i = self.i + d
 
-
-
         return (self.a + "\n" + self.t + "\n" + self.u + "\n" + self.i + "\n" + self.a)
-
-
-
 
 main ()
