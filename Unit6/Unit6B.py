@@ -9,5 +9,7 @@ for b in dict.weekends :
                 print("Your Birthday is on a weekend!")
                 dict.d = 0
 if dict.d==1 :
-    print("Your birthday isn't a weekend!")
+    print("Your birthday isn't a weekend! (or you can't spell)")
+j = dict.aBunchOfPointlessIfStatements(y , x)
+print("Your birthday is: " + j)
 exit(randint(69,690))

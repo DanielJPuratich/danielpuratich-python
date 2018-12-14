@@ -25,6 +25,33 @@ def asd (monthAndYear) :
         except ValueError :
             if char!=' ' :
                 letters = letters + char
-    #return(letters,nums)
     return(nums,letters)
 
+def aBunchOfPointlessIfStatements (num, month) :
+    a = str(num)
+    if month=='january' :
+        b = '1'
+    elif month=='febuary' :
+        b = '2'
+    elif month=='march' :
+        b = '3'
+    elif month=='april' :
+        b = '4'
+    elif month=='may' :
+        b = '5'
+    elif month=='june' :
+        b = '6'
+    elif month=='july' :
+        b = '7'
+    elif month=='august' :
+        b = '8'
+    elif month=='september' :
+        b = '9'
+    elif month=='october' :
+        b = '10'
+    elif month=='november' :
+        b = '11'
+    elif month=='december' :
+        b = '12'
+    c = '2018'
+    return (a + '/' + b + '/' + c)
