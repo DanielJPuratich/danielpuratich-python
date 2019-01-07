@@ -1,5 +1,7 @@
 
 import pygame as p
+from random import randint
+import time as t
 
 clock = p.time.Clock()
 p.init()
@@ -16,7 +18,6 @@ def baseLoop () :
 
     while t=='True':
             ms = clock.tick(60)
-            print(ms)
             p.display.update()
             screen.fill(black)
             p.draw.rect(screen, white, (x,y,w,h), 0)
@@ -26,11 +27,27 @@ def baseLoop () :
             if event.type == p.KEYDOWN:
                     if event.key == p.K_LEFT:
                         if x>=2 :
-                            x -= ms / 3
+                            x -= ms / 2
                     if event.key == p.K_RIGHT:
                         if x<=698 :
-                            x += ms / 3
+                            x += ms / 2
+            #Add system to detect hitting a brick, and when brick hit, downgrading it to "lower" color
+            #Add win factor, when all bricks gone, a couple second break, then back to randLvl to generate another one
+
+#def Menu () :
+    #black = (0,0,0)
+    #t = 'True'
+    #Add some sort of "Super breakout logo and some sot of "start" button
+    #while t=='True' :
+        #add system to detect click of start button, and if its detected go to rand lvl func
+
+#def randLvl () :
+    #In here generate random placement for bricks, random brick levels aka colors
 
 
+
+
+
+#Menu()
 baseLoop()
 p.quit()
