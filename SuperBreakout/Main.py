@@ -1,5 +1,7 @@
 
 import pygame as p
+
+clock = p.time.Clock()
 p.init()
 screen = p.display.set_mode([800, 600])
 
@@ -13,6 +15,8 @@ def baseLoop () :
     h = 20
 
     while t=='True':
+            ms = clock.tick(60)
+            print(ms)
             p.display.update()
             screen.fill(black)
             p.draw.rect(screen, white, (x,y,w,h), 0)
@@ -21,11 +25,11 @@ def baseLoop () :
                     t = 'False'
             if event.type == p.KEYDOWN:
                     if event.key == p.K_LEFT:
-                        if x!=2 :
-                            x -= 1
+                        if x>=2 :
+                            x -= ms / 3
                     if event.key == p.K_RIGHT:
-                        if x!=698 :
-                            x += 1
+                        if x<=698 :
+                            x += ms / 3
 
 
 baseLoop()
