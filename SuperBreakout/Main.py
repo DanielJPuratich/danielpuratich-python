@@ -55,6 +55,7 @@ def Menu () :
 
 
 def randLvl () :
+    p.display.update()
 
 
 
