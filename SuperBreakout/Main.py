@@ -6,30 +6,47 @@ clock = p.time.Clock()
 p.init()
 screen = p.display.set_mode([800, 600])
 
-def baseLoop () :
+def baseLoop (List) :
     t = 'True'
     white = (255,255,255)
     black = (0,0,0)
-    x = 350
-    y = 578
+    x1 = 350
+    y1 = 578
     w = 100
     h = 20
+    move_right = False
+    move_left = False
+    red5 = (221, 11, 56)
+    purple4 = (168, 11, 221)
+    blue3 = (11, 53, 221)
+    green2 = (11, 221, 144)
+    yellow1 = (193, 221, 11)
 
     while t=='True':
-            ms = clock.tick(100)
+            ms = clock.tick(60)
             screen.fill(black)
-            p.draw.rect(screen, white, (x,y,w,h), 0)
+            drawBlocks(List)
+            p.draw.rect(screen, white, (x1,y1,w,h), 0)
             p.display.update()
             for event in p.event.get():
                 if event.type == p.QUIT:
                     t = 'False'
-            if event.type == p.KEYDOWN:
-                    if event.key == p.K_LEFT:
-                        if x>=2 :
-                            x -= ms / 2
+                if event.type == p.KEYDOWN:
                     if event.key == p.K_RIGHT:
-                        if x<=698 :
-                            x += ms / 2
+                        move_right = True
+                    if event.key == p.K_LEFT:
+                        move_left = True
+                if event.type == p.KEYUP:
+                    if event.key == p.K_RIGHT:
+                        move_right = False
+                    if event.key == p.K_LEFT:
+                        move_left = False
+            if move_right==True :
+                if x1<=698 :
+                    x1 = x1 + (ms/2)
+            if move_left==True :
+                if x1>=2 :
+                    x1 = x1 - (ms/2)
             #Add system to detect hitting a brick, and when brick hit, downgrading it to "lower" color
             #Add win factor, when all bricks gone, a couple second break, then back to randLvl to generate another one
 
@@ -77,32 +94,36 @@ def randLvl () :
                     if count >= 5 :
                         Row5 = [randint(1,5),randint(1,5),randint(1,5),randint(1,5),randint(1,5),randint(1,5),randint(1,5),randint(1,5),randint(1,5),randint(1,5)]
                         List = [Row1,Row2,Row3,Row4,Row5]
-    y = 0
-    red5 = (221, 11, 56)
-    purple4 = (168, 11, 221)
-    blue3 = (11, 53, 221)
-    green2 = (11, 221, 144)
-    yellow1 = (193, 221, 11)
-
-    for row in List :
-        x = 0.3
-        for value in row :
-            if value==1 :
-                color = yellow1
-            elif value==2 :
-                color = green2
-            elif value==3 :
-                color = blue3
-            elif value==4 :
-                color = purple4
-            elif value==5 :
-                color = red5
-            p.draw.rect(screen, color, ((x*75),(y*25),69,20), 0 )
-            x = x + 1
-        y = y + 1
+    drawBlocks(List)
     p.display.update()
+    baseLoop(List)
 
 
+
+
+def drawBlocks (List) :
+        y = 0
+        red5 = (221, 11, 56)
+        purple4 = (168, 11, 221)
+        blue3 = (11, 53, 221)
+        green2 = (11, 221, 144)
+        yellow1 = (193, 221, 11)
+        for row in List :
+            x = 0.3
+            for value in row :
+                if value==1 :
+                    color = yellow1
+                elif value==2 :
+                    color = green2
+                elif value==3 :
+                    color = blue3
+                elif value==4 :
+                    color = purple4
+                elif value==5 :
+                    color = red5
+                p.draw.rect(screen, color, ((x*75),(y*25),69,20), 0 )
+                x = x + 1
+            y = y + 1
 
 
 
