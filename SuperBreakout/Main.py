@@ -5,7 +5,7 @@ import time as t
 clock = p.time.Clock()
 p.init()
 screen = p.display.set_mode([800, 600])
-
+#====================================================================================================================================
 def baseLoop (List) :
     t = 'True'
     white = (255,255,255)
@@ -49,7 +49,7 @@ def baseLoop (List) :
                     x1 = x1 - (ms/2)
             #Add system to detect hitting a brick, and when brick hit, downgrading it to "lower" color
             #Add win factor, when all bricks gone, a couple second break, then back to randLvl to generate another one
-
+#====================================================================================================================================
 def Menu () :
     black = (0,0,0)
     t = 'True'
@@ -71,8 +71,7 @@ def Menu () :
         for event in p.event.get():
             if event.type == p.QUIT:
                 t = 'False'
-
-
+#==================================================================================================================================================================================
 def randLvl () :
     black = (0,0,0)
     screen.fill(black)
@@ -97,10 +96,7 @@ def randLvl () :
     drawBlocks(List)
     p.display.update()
     baseLoop(List)
-
-
-
-
+#=================================================================================================================================================================================
 def drawBlocks (List) :
         y = 0
         red5 = (221, 11, 56)
@@ -124,8 +120,6 @@ def drawBlocks (List) :
                 p.draw.rect(screen, color, ((x*75),(y*25),69,20), 0 )
                 x = x + 1
             y = y + 1
-
-
-
+#====================================================================================================================================
 Menu()
 p.quit()
