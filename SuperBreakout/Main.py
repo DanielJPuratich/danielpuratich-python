@@ -85,7 +85,7 @@ def randLvl () :
     yellow1 = (193, 221, 11)
 
     for row in List :
-        x = 0
+        x = 0.3
         for value in row :
             if value==1 :
                 color = yellow1
@@ -97,7 +97,7 @@ def randLvl () :
                 color = purple4
             elif value==5 :
                 color = red5
-            p.draw.rect(screen, color, (x*50.5,y*26,50,25), 0 )
+            p.draw.rect(screen, color, ((x*75),(y*25),69,20), 0 )
             x = x + 1
         y = y + 1
     p.display.update()
