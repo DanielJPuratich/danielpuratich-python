@@ -1,12 +1,13 @@
 import pygame as p
 from random import randint
+import math
 import time as t
 
 clock = p.time.Clock()
 p.init()
 screen = p.display.set_mode([800, 600])
 #====================================================================================================================================
-def baseLoop (List) :
+def baseLoop (List,count) :
     t = 'True'
     white = (255,255,255)
     black = (0,0,0)
@@ -95,7 +96,7 @@ def randLvl () :
                         List = [Row1,Row2,Row3,Row4,Row5]
     drawBlocks(List)
     p.display.update()
-    baseLoop(List)
+    baseLoop(List,count)
 #=================================================================================================================================================================================
 def drawBlocks (List) :
         y = 0
@@ -138,6 +139,17 @@ def isCollision(x1,y1,w1,h1, x2,y2,w2,h2) :
             print('Xs and Ys equal')
             return True
     return False
+#=======================================================================================
+def isCircleCollision(x1,y1,r1, x2,y2,r2) :
+    rt = r1 + r2
+    xc = abs(x1 - x2)
+    yc = abs(y1 - y2)
+    ch = math.sqrt(math.pow(xc, 2) + math.pow(yc,2))
+    if rt==ch :
+        return True
+    else :
+        return False
+
 #================================================================================================================================
 Menu()
 p.quit()
