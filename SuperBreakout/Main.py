@@ -121,5 +121,23 @@ def drawBlocks (List) :
                 x = x + 1
             y = y + 1
 #====================================================================================================================================
+def isCollision(x1,y1,w1,h1, x2,y2,w2,h2) :
+    top1x = x1
+    top1y = y1
+    bot1x = x1 + w1
+    bot1y = y1 + h1
+
+    top2x = x2
+    top2y = y2
+    bot2x = x2 + w2
+    bot2y = y2 + h2
+
+    if top1x==top2x or top1x==bot2x or bot1x==top2x or bot1x==bot2x :
+        print('Xs equal')
+        if top1y==top2y or top1y==bot2y or bot1y==top2y or bot1y==bot2y :
+            print('Xs and Ys equal')
+            return True
+    return False
+#================================================================================================================================
 Menu()
 p.quit()
