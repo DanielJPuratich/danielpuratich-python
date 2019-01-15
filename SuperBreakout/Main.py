@@ -149,7 +149,10 @@ def isCircleCollision(x1,y1,r1, x2,y2,r2) :
         return True
     else :
         return False
-
+#======================================================================================
+def isCircleRectangleCollision(cx,cy,cr, rtx,rbx,rw,rh) :
+    #this will only work assuming i have brain cells
+    cx = 0
 #================================================================================================================================
 Menu()
 p.quit()
