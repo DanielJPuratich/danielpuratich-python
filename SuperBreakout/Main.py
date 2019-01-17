@@ -145,14 +145,33 @@ def isCircleCollision(x1,y1,r1, x2,y2,r2) :
     xc = abs(x1 - x2)
     yc = abs(y1 - y2)
     ch = math.sqrt(math.pow(xc, 2) + math.pow(yc,2))
-    if rt==ch :
+    if rt<=ch :
         return True
     else :
         return False
 #======================================================================================
-def isCircleRectangleCollision(cx,cy,cr, rtx,rbx,rw,rh) :
-    #this will only work assuming i have brain cells
-    cx = 0
+def isCircleRectangleCollision(cx,cy,cr, rx,ry,rw,rh) :
+    RectCenterX = rx + (rw / 2)
+    RectCenterY = ry + (rh / 2)
+    changeX = abs(cx - RectCenterX)
+    changeY = abs(cy - RectCenterY)
+    dirX = cx - RectCenterX
+    dirY = cy - RectCenterY
+    xpos = False
+    ypos = False
+    if dirX>=0 :
+        xpos = True
+    if dirY>=0 :
+        ypos = True
+    majorHypot = math.sqrt(math.pow(changeX , 2) + math.pow(changeY ,2))
+    neededInRect = majorHypot - cr
+    theta = math.degrees(math.acos( (math.pow(changeX,2) + math.pow(majorHypot,2) - math.pow(changeY,2)) / ( 2 * changeX * majorHypot)))      #A = changeY  B = changeX   C = majorHypot - law of cosines
+    #Calculate insiderect than its done, finding insiderect is super difficult
+
+    if neededInRect<=insideRect :
+        return True
+    else :
+        return False
 #================================================================================================================================
 Menu()
 p.quit()
