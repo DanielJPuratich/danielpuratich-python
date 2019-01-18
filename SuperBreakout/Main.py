@@ -1,3 +1,4 @@
+#This doesn't work - Has the basis for a game - collision checks between shapes - level generation - main menu (Idea was for super breakout, this code could be useful in numerous different projects)
 import pygame as p
 from random import randint
 import math
@@ -25,8 +26,10 @@ def baseLoop (List,count) :
 
     while t=='True':
             ms = clock.tick(60)
+            mouse = p.mouse.get_pos()
             screen.fill(black)
             drawBlocks(List)
+            p.draw.circle(screen, red5, mouse, 20)  #temporary to check if my collision code works
             p.draw.rect(screen, white, (x1,y1,w,h), 0)
             p.display.update()
             for event in p.event.get():
@@ -48,6 +51,15 @@ def baseLoop (List,count) :
             if move_left==True :
                 if x1>=2 :
                     x1 = x1 - (ms/2)
+            cx = mouse[0]
+            cy = mouse[1]
+            cr = 20
+            rx = x1
+            ry = y1
+            rw = w
+            rh = h
+            isCircleRectangleCollision(cx,cy,cr, rx,ry,rw,rh)    #This code works till angle is zero between circle and rectangle - causes code to break
+            #Add ball that bounces, and does damage
             #Add system to detect hitting a brick, and when brick hit, downgrading it to "lower" color
             #Add win factor, when all bricks gone, a couple second break, then back to randLvl to generate another one
 #====================================================================================================================================
@@ -122,7 +134,7 @@ def drawBlocks (List) :
                 x = x + 1
             y = y + 1
 #====================================================================================================================================
-def isCollision(x1,y1,w1,h1, x2,y2,w2,h2) :
+def isCollision(x1,y1,w1,h1, x2,y2,w2,h2) :   #between 2 rects
     top1x = x1
     top1y = y1
     bot1x = x1 + w1
@@ -140,7 +152,7 @@ def isCollision(x1,y1,w1,h1, x2,y2,w2,h2) :
             return True
     return False
 #=======================================================================================
-def isCircleCollision(x1,y1,r1, x2,y2,r2) :
+def isCircleCollision(x1,y1,r1, x2,y2,r2) :   #between 2 circles
     rt = r1 + r2
     xc = abs(x1 - x2)
     yc = abs(y1 - y2)
@@ -150,11 +162,13 @@ def isCircleCollision(x1,y1,r1, x2,y2,r2) :
     else :
         return False
 #======================================================================================
-def isCircleRectangleCollision(cx,cy,cr, rx,ry,rw,rh) :
+def isCircleRectangleCollision(cx,cy,cr, rx,ry,rw,rh) :      #between 1 rect and 1 circle
     RectCenterX = rx + (rw / 2)
     RectCenterY = ry + (rh / 2)
     changeX = abs(cx - RectCenterX)
     changeY = abs(cy - RectCenterY)
+    changex = (cx - RectCenterX)
+    changey = (cy - RectCenterY)
     dirX = cx - RectCenterX
     dirY = cy - RectCenterY
     xpos = False
@@ -166,8 +180,26 @@ def isCircleRectangleCollision(cx,cy,cr, rx,ry,rw,rh) :
     majorHypot = math.sqrt(math.pow(changeX , 2) + math.pow(changeY ,2))
     neededInRect = majorHypot - cr
     theta = math.degrees(math.acos( (math.pow(changeX,2) + math.pow(majorHypot,2) - math.pow(changeY,2)) / ( 2 * changeX * majorHypot)))      #A = changeY  B = changeX   C = majorHypot - law of cosines
-    #Calculate insiderect than its done, finding insiderect is super difficult
-
+    print(theta)
+    if changeY <= changeX :
+        smallX = rw / 2
+        insideRect = (smallX) /  (math.degrees(math.cos(theta)))
+    elif changeY >= changeX :
+        smallY = rh / 2
+        insideRect = (smallY) / (math.degrees(math.sin(theta)))
+    elif changeY == changeX :
+        if rw >= rh :
+            smallY = rh / 2
+            insideRect = (smallY) / (math.degrees(math.sin(theta)))
+        elif rw <= rh :
+            smallX = rw / 2
+            insideRect = (smallX) /  (math.degrees(math.cos(theta)))
+        elif rw == rh :
+            smallX = rw/2
+            #both ways, small x small y and sin or cosine is functional here
+            insideRect = (smallX) /  (math.degrees(math.cos(theta)))
+    else :
+        print('error in calc collision')
     if neededInRect<=insideRect :
         return True
     else :
